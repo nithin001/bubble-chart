@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<script src="raphael-min.js"></script>
+<script src="chart.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var details={xscale:30,yscale:20,xtitle:"years",ytitle:"revenue",parentdiv:"chartdiv",chartcolor:"white",showxtitle:false,showytitle:false,showaxis:true};
+	var mychart=chart.createChart(details);
+	for(i=0;i<24;i++)
+	{
+	var ypos=Math.floor(Math.random()*1000/100)+1;
+	mychart.addEvent({xpos:1960+i,ypos:ypos,xtitle:"1960",ytitle:"0",description:1960+i});
+	}
+	/*mychart.addEvent({xpos:1961,ypos:2,xtitle:"1961",ytitle:"50K",description:"1961: Produced the first output"});
+	mychart.addEvent({xpos:1972,ypos:3,xtitle:"1970",ytitle:"100K",description:"Reached milestone revenue of 100K Rs"});
+	mychart.addEvent({xpos:1975,ypos:4,xtitle:"1975",ytitle:"500M",description:"Reached milestone revenue of 500M Rs"});
+	mychart.addEvent({xpos:1980,ypos:5,xtitle:"1980",ytitle:"1M",description:"Reached milestone revenue of 1M Rs"});
+	mychart.addEvent({xpos:1985,ypos:6,xtitle:"1985",ytitle:"5M",description:"Reached milestone revenue of 5M Rs"});
+	mychart.addEvent({xpos:1990,ypos:7,xtitle:"1990",ytitle:"50M",description:"Reached milestone revenue of 50M Rs"});
+	mychart.addEvent({xpos:2000,ypos:8,xtitle:"2000",ytitle:"100M",description:"Reached milestone revenue of 100M Rs"});
+	mychart.addEvent({xpos:2010,ypos:9,xtitle:"2010",ytitle:"200M",description:"Reached milestone revenue of 200M Rs"});*/
+	mychart.chartIt();
+})
+
+</script>
+<style>
+body{margin:0;padding:0;width:100%;text-align:left;}
+.chartdiv{
+width:1200px;
+height:500px;
+margin:40px auto;
+padding:0;
+overflow:scroll;
+}
+#chartdiv{
+position:relative;
+background-color:white;
+text-align:left;
+}
+#charttip{
+z-index:100;
+padding:10px;
+background-color:black;
+color:white;
+display:none;
+}
+</style>
+</head>
+<body id="body">
+<div class="chartdiv">
+	<div id="chartdiv"></div>
+</div>
+</body>
+</html>
+
